@@ -9,7 +9,7 @@ class BooksController < ApplicationController
     def create
         @book = Book.new(book_params)
         if @book.save
-          redirect_to root_path, notice: '新增書本成本'
+          redirect_to root_path, notice: '新增書本成功'
         else
           redirect_to new_book, notice: '新增失敗'
         end
