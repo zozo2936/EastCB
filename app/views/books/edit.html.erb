@@ -1,4 +1,5 @@
-<h1>新增書本</h1>
+<h1>編輯書本<%=@book.title%></h1>
+
 <% if @book.errors.any? %>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
@@ -34,20 +35,9 @@
 <%end%>
 
 
-<%# 
-- title          string
-- publish_date   date
-- list_price     deciml
-- sell_price     decimal
-- page_num       integer
-- isbn           string unique
-- isbn 13        string unique
-- description    text 
-- about          text
-- outline        text
-- on_sell        boolean flast %>
 
 
 
-<br>
+
+
 <a href="/books">返回商品列表</a>
