@@ -1,10 +1,13 @@
 class BooksController < ApplicationController
+
+  before_action :find_book, only:[:show, :edit, :update, :destroy]
+
     def index 
       @book = Book.all
     end
 
     def new
-        @book = Book.new
+      @book = Book.new
     end
 
   
@@ -20,19 +23,17 @@ class BooksController < ApplicationController
 
     def edit
       # render html:params  拿網頁參數
-      @book = Book.find_by(id:params[:id])
+      # @book = Book.find_by(id:params[:id])
       # redirect_to root_path unless @book, notice:'查無此書'
 
       # begin
-      #   @book = Book.find(params[:id])
+ #       find_book
       # rescue
       #   redirect)to root_path,notice:'查無此書'
       # end
     end
 
     def update
-      @book = Book.find(params[:id])
-
       if @book.update(book_params)
         redirect_to root_path, notice: '更新成功'
       else
@@ -40,8 +41,22 @@ class BooksController < ApplicationController
       end
     end
 
+    def destroy    
+      @book.destroy
+      redirect_to root_path, notice:'資料已刪除'
+    end
+
+    def show
+    end
+
 
     private
+
+    def find_book
+      @book = Book.find(params[:id])
+    end
+
+
 
     def book_params
   
