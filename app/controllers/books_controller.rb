@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   before_action :find_book, only:[:show, :edit, :update, :destroy]
 
     def index 
-      @book = Book.all
+      @book = Book.all.with_attached_cover_image
     end
 
     def new
@@ -12,6 +12,7 @@ class BooksController < ApplicationController
 
   
     def create
+      
         @book = Book.new(book_params)
         if @book.save
           redirect_to root_path, notice: '新增書本成功'
@@ -47,6 +48,7 @@ class BooksController < ApplicationController
     end
 
     def show
+    
     end
 
 
@@ -66,7 +68,10 @@ class BooksController < ApplicationController
             :sell_price,
             :page_num,
             :isbn,
-            :isbn13)
+            :isbn13,
+            :cover_image,
+            :on_sell,
+            :published_at)
 
       
         end
