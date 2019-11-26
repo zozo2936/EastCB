@@ -2,11 +2,10 @@
 
 <br>
 
-<h1><i class="fas fa-book-open"></i>書本列表</h1>
+<h1><i class="fas fa-book-open "></i>書本列表</h1>
+<%= link_to "新增書本", new_admin_book_path, class: 'button is-primary '%>
 
- <%= paginate @books %>
-
-
+<%= paginate @books %>
 
 <ul>
 <section class="columns is-multiline">
@@ -34,12 +33,14 @@
         <div class="content">
           <%= book.description %>
           <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
-          <%= link_to "放到購物車", '#', class: 'button is-light is-small' %>
+          <hr>
+          <%= link_to "編輯", edit_admin_book_path(book), class: 'button is-light is-small' %>
+          <%= link_to "刪除",admin_book_path(book), method: 'delete',data: {confirm:'確定嗎?'},class: 'button is-light is-small'  %>
         </div>
       </div>
     </div>
   </div>
-<% end %>
+ <% end %>
 </section>
 
 
