@@ -1,9 +1,8 @@
 <%= notice %>
 
-<br>
-
 <h1><i class="fas fa-book-open "></i>書本列表</h1>
 <%= link_to "新增書本", new_admin_book_path, class: 'button is-primary '%>
+<%= link_to "返回book", root_path%>
 
 <%= paginate @books %>
 
