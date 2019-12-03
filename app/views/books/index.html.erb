@@ -1,20 +1,37 @@
 <%= notice %>
+<section class="columns is-fullheight">
 
-<h1><i class="fas fa-book-open"></i>書本列表</h1>
-<%= link_to "前往admin", admin_root_path%>
-<%= paginate @books %>
-
+ <aside class="column is-2 is-fullheight menu">
+    <p class="menu-label">
+      分類
+    </p>
+    <ul class="menu-list">
+      <li><a>Web 技術</a></li>
+      <li><a>版本控制</a></li>
+      <li><a>資料庫</a></li>
+    </ul>
+      <p class="menu-label">出版社</p>
+    <ul class="menu-list">
+    <li><a>出版社一</a></li>
+    <li><a>出版社二</a></li>
+    </ul>    
+  </aside>
 <ul>
+
+<section class="column is-10">
+  <h1><i class="fas fa-book-open"></i>書本列表</h1>
+  <%= link_to "前往admin", admin_root_path%>
+  <%= paginate @books %>
 <section class="columns is-multiline">
-<% @books.each do |book| %>
-  <div class="column is-3">
-    <div class="card">
-      <div class="card-image">
-        <figure class="image ">
-          <%= cover_image_tag book, width: 300, height: 300, dummy_img: true %>
-        </figure>
-      </div>
-      <div class="card-content">
+  <% @books.each do |book| %>
+    <div class="column is-3">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image ">
+            <%= cover_image_tag book, width: 300, height: 300, dummy_img: true %>
+          </figure>
+        </div>
+        <div class="card-content">
         <div class="media">
           <div class="media-left">
             <figure class="image is-48x48">
@@ -36,7 +53,6 @@
     </div>
   </div>
 <% end %>
-
+    </section>
+  </section>
 </section>
-
-
