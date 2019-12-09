@@ -7,8 +7,7 @@ class BooksController < ApplicationController
                  .with_attached_cover_image
                  .page(params[:page])
                  .per(10)
-                 
-                
+    @publishers = Publisher.available
   end
 
   def show

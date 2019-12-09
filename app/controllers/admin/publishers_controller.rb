@@ -22,8 +22,8 @@ class Admin::PublishersController < Admin::BaseController
   end
 
   def update
-    if @publisher.updute(publisher_params)
-      redirect_to edit_admin_publishers_path, notic: '更新成功'
+    if @publisher.update(publisher_params)
+      redirect_to edit_admin_publisher_path, notic: '更新成功'
     else
       render :edit
     end
