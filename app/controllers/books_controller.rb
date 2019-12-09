@@ -7,6 +7,8 @@ class BooksController < ApplicationController
                  .with_attached_cover_image
                  .page(params[:page])
                  .per(10)
+                 
+                
   end
 
   def show
