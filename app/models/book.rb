@@ -4,6 +4,8 @@ class Book < ApplicationRecord
   validates :list_price, :sell_price, :page_num, numericality: {greater_than: 0}
   #validates 驗證
   
+  has_many :comments
+
  #relationships   關係
   has_one_attached :cover_image
   belongs_to :publisher

@@ -7,4 +7,18 @@
 <article>
   <%= simple_format(@book.description)%>
 </article>
+
+<section>
+  <%= form_with(model: @comment,url: comment_book_path(@book)) do |form| %>
+    <div class="field">
+      <%= form.label :title, '標題', class: 'label' %>
+      <%= form.text_field :title, class: 'input' %>
+    </div>
+    <div class="field">
+      <%= form.label :title, '內文', class: 'label' %>
+      <%= form.text_area :title, class: 'textarea' %>
+    </div>
+    <%= form.submit '送出', class: 'button is-primary' %>
+  <% end %>
+</section>
 <a href="/books">返回商品列表</a>
