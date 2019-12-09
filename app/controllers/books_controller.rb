@@ -12,23 +12,23 @@ class BooksController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @book.comments.order(id: :desc)
   end
 
   def comment
-    def comment
-      # comment 角度
-      # @comment = Comment.new(comment_params, user:current_user, book:@book)
-      # book 角度
-      @comment = @book.comments.build(comment_params)
-      # user 角度, 沒有has_many方法
-      # @comment = current_user.comments.build(comment_params, book: @book)
-      if @comment.save
-        redirect_to @book,notice: '成功'
-      else
-        #失敗 自己填
-      end
-   end
+    # comment 角度
+    # @comment = Comment.new(comment_params, user:current_user, book:@book)
+    # book 角度
+    @comment = @book.comments.build(comment_params)
+    # user 角度, 沒有has_many方法
+    # @comment = current_user.comments.build(comment_params, book: @book)
+    if @comment.save
+      redirect_to @book, notice: '成功'
+    else
+      #失敗 自己填
+    end
   end
+
 
   private
 
@@ -37,6 +37,8 @@ class BooksController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:title, :comment).marge(user:current_user)
+    params.require(:comment)
+          .permit(:title, :content)
+          .merge(user: current_user)
   end
 end
