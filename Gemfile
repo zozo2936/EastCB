@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
-gem 'omniauth-oauth2', '~> 1.6'
+gem 'omniauth-google-oauth2', '~> 0.8.0'
 
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
