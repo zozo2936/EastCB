@@ -7,8 +7,10 @@
     <div class="column is-3">
       <div class="card">
         <div class="card-image">
-          <figure class="image ">
-            <%= cover_image_tag book, width: 300, height: 300, dummy_img: true %>
+          <figure class="image">
+            <%= link_to book_path(book) do %>
+              <%= cover_image_tag book, width: 300, height: 300, dummy_img: true %>
+            <%end%>
           </figure>
         </div>
         <div class="card-content">
