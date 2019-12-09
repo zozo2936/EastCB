@@ -1,4 +1,10 @@
+<h1 class="title">書名： <%= @book.title%></h1>
 
-<h1>書名： <%= @book.title%></h1>
+<figure class="image">
+  <%= cover_image_tag @book, dummy_img: true %>
+</figure>
 
+<article>
+  <%= simple_format(@book.description)%>
+</article>
 <a href="/books">返回商品列表</a>
