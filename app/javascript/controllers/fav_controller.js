@@ -8,11 +8,24 @@
 // </div>
 
 import { Controller } from "stimulus"
+import ax from "helpers/ax";
 
 export default class extends Controller {
-  static targets = [ "output" ]
+  static targets = [ "icon" ]
 
-  connect() {
-    this.outputTarget.textContent = 'Hello, Stimulus!'
+  connect(){
+  }
+
+  toggle(evt){
+    evt.preventDefault();
+
+    ax.post('/api/books/2/favorite',{})
+         .then(function(response) {
+           console.log(response.data);
+         })
+         .catch(function(error) {
+           console.log(error);
+         })
   }
 }
+

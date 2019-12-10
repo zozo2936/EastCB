@@ -33,7 +33,6 @@ class BooksController < ApplicationController
     end
   end
 
-
   private
 
   def find_book

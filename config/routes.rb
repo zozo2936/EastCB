@@ -16,4 +16,13 @@ Rails.application.routes.draw do
     resources :books    #/admin/book
     resources :publishers
   end
+
+  namespace :api do
+    resources :book, only:[] do
+      member do
+        post :favorite
+      end
+    end
+  end
+
 end
