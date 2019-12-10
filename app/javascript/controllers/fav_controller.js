@@ -19,13 +19,15 @@ export default class extends Controller {
   toggle(evt){
     evt.preventDefault();
 
-    ax.post('/api/books/2/favorite',{})
-         .then(function(response) {
-           console.log(response.data);
-         })
-         .catch(function(error) {
-           console.log(error);
-         })
+    let id = this.data.get('id');
+
+    ax.post(`/api/books/${id}/favorite`,{})
+      .then(function(response) {
+        console.log(response.data);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
   }
 }
 

@@ -1,7 +1,8 @@
 <h1 class="title">書名： <%= @book.title%></h1>
 
-<div data-controller="fav">
-  <a href="" data-action="fav#toggle" class="button">
+<div data-controller="fav" 
+     data-fav-id="<%= params[:id]%>" >
+  <a href="#" data-action="fav#toggle" class="button">
     <i class="far fa-heart" data-target= "fav.icon"></i>
   </a>
 </div>

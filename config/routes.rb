@@ -18,11 +18,13 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :book, only:[] do
+    resources :books, only: [] do
       member do
         post :favorite
       end
     end
   end
 
+
+  
 end
