@@ -5,6 +5,8 @@ class Book < ApplicationRecord
   #validates 驗證
   
   has_many :comments
+  has_many :favorites
+  has_many :users,through: :favorites
 
  #relationships   關係
   has_one_attached :cover_image

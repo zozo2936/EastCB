@@ -1,5 +1,8 @@
 let comment_area = document.querySelector('#comment_area')
 <%# let comment_area = document.querySelectorAll('.comment_area')  抓一群%> 
 if (comment_area){
-  alert(comment_area.innerHTML);
+  let content = '<%= j(render 'comments/comment', comment: @comment )%>';
+  comment_area.innerHTML = content + comment_area.innerHTML;
+  
+  document.querySelector('#comment_form').reset();
 }

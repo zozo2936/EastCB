@@ -23,10 +23,13 @@ class BooksController < ApplicationController
     # user 角度, 沒有has_many方法
     # @comment = current_user.comments.build(comment_params, book: @book)
     if @comment.save
+      respond_to do |format|
+        format.js {render 'abc'}
+      end
       # render js: 'alert("hi");'
       # redirect_to @book, notice: '成功'
     else
-      #失敗 自己填
+      render js: 'alert("發生錯誤");'
     end
   end
 
