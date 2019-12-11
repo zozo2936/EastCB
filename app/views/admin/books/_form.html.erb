@@ -55,6 +55,14 @@
         <%= form.number_field :page_num, class: 'input' %>
       </div>
     </div>
+    <div class="column " > 
+          <div class="field">
+            <%= form.label :category, '分類', class: 'label' %>
+          <div class="select is-fullwidth">
+            <%= form.collection_select :category, Category.all, :id, :title %>
+          </div>
+        </div>
+    </div>
   </div>
 
   <div class="columns">

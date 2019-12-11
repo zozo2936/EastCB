@@ -8,6 +8,7 @@ class BooksController < ApplicationController
                  .page(params[:page])
                  .per(10)
     @publishers = Publisher.available
+    # @categories = Category.available
   end
 
   def show
@@ -24,7 +25,7 @@ class BooksController < ApplicationController
     # @comment = current_user.comments.build(comment_params, book: @book)
     if @comment.save
       respond_to do |format|
-        format.js {render 'abc'}
+        format.js 
       end
       # render js: 'alert("hi");'
       # redirect_to @book, notice: '成功'

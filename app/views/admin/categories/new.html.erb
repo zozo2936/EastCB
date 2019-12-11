@@ -1,0 +1,15 @@
+<h1 class="title"> NEWS</h1>
+
+<%=form_with model: [:admin,@category] do |form|%>
+<div class="columns">
+    <div class="column is-2">
+      <div class="field">
+        <%= form.label :title , '名稱', class: 'label' %>
+        <%= form.text_field :title, class: 'input' %>
+      </div>
+        <%= form.submit class: 'button is-light' %>
+    </div>
+</div>
+
+
+<%end%>

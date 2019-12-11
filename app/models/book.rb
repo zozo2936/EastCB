@@ -11,6 +11,7 @@ class Book < ApplicationRecord
  #relationships   關係
   has_one_attached :cover_image
   belongs_to :publisher
+  belongs_to :category
 
  #scope 定義類別方法
   def self.available
