@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resources :categories,only:[:show]
   resources :books , only: [:index,:show] do 
     member do 
       post :comment    #/books/:id/comment , to: 'books#comment'
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     root 'books#index'  #/admin
     resources :books    #/admin/book
     resources :publishers
+    resources :categories, except:[:show]
   end
 
   namespace :api do
