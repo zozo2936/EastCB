@@ -8,7 +8,7 @@ class BooksController < ApplicationController
                  .page(params[:page])
                  .per(10)
     @publishers = Publisher.available
-    # @categories = Category.available
+    # @categories = Category.all
   end
 
   def show
