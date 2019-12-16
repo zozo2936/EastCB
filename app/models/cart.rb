@@ -1,6 +1,6 @@
 class Cart
-  def initialize
-    @items = []  #若是放在下面 則會在每次執行時被清空
+  def initialize(items = [])
+    @items = items #若是放在下面 則會在每次執行時被清空
   end
 
   def add_item(product_id)
@@ -30,5 +30,38 @@ class Cart
     # return total
     @items.reduce(0) { |sum,item| sum + item.total_price }
     # reduce 會拿第一個元素當初始值，所以要給他 0 
+  end
+
+  def serialize
+    result = @items.map { |item|
+      {"product_id" => item.product_id, "quantity" => item.quantity}
+    }
+
+    # result = []
+    # @items.eachh do |item|
+    #   result << {"product_id" => item.product_id, "quantity" => item.quantity}
+    # end
+    { "items" => result }
+  end
+
+  def self.from_hash(hash = nil)
+    # cart_hash = {
+    #   "items" =>[
+    #     {"product_id" => 1,"quantity" => 3},
+    #     {"product_id" => 2,"quantity" => 2}
+    #   ]
+    # }
+    if hash && hash["items"]
+      items = []
+      hash["items"].each do |item|
+        items << CartItem.new( item["product_id"],item["quantity"])
+      end
+
+      Cart.new(items)
+    else
+      # 新車
+      Cart.new
+    end
+
   end
 end
