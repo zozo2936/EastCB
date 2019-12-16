@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-class Cart
-end
-# 可以把商品丟到到購物車裡，然後購物車裡就有東西了。
-# 如果加了相同種類的商品到購物車裡，購買項目（CartItem）並不會增加，但商品的數量會改變。
-# 商品可以放到購物車裡，也可以再拿出來。
 # 每個 Cart Item 都可以計算它自己的金額（小計）。
 # 可以計算整台購物車的總消費金額。
 
@@ -26,18 +21,26 @@ RSpec.describe Cart, type: :model do
       expect(cart.items.first.quantity).to be 3  #假設第一個數量應該為三
     end
 
-    it "商品可以放到購物車裡，也可以再拿出來。"
+    it "商品可以放到購物車裡，也可以再拿出來。" do
       cart = Cart.new
+
 
       p1 = Publisher.create(name: 'kk store')
       c1 = Category.create(title: 'ruby book')
-
-      b1 = Book.create(title: 'hello',
-           isbn: 'aaa',
-           isbn13: 'bbb', 
-           publisher: 'p1', 
-           category: 'c1'
+      b1 = Book.create(
+           title: 'hello',
+           isbn: 1231,
+           isbn13: 44223,
+           list_price: 100,
+           sell_price: 50,
+           page_num: 100,
+           publisher: p1,
+           category: c1
           )
-
+  
+      cart.add_item(b1.id)
+      expect(cart.items.first.product).to be_a Book
+      # to be_a 我是一種東西
+    end
   end
 end
