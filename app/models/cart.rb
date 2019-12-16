@@ -21,6 +21,14 @@ class Cart
   # def items 
   #   @items   
   # end
-  
 
+  def total_price 
+    # total = 0
+    # @items.each do |item|
+    #   total = total + item.total_price
+    # end
+    # return total
+    @items.reduce(0) { |sum,item| sum + item.total_price }
+    # reduce 會拿第一個元素當初始值，所以要給他 0 
+  end
 end
