@@ -24,23 +24,14 @@ RSpec.describe Cart, type: :model do
     it "商品可以放到購物車裡，也可以再拿出來。" do
       cart = Cart.new
 
-
-      p1 = Publisher.create(name: 'kk store')
-      c1 = Category.create(title: 'ruby book')
-      b1 = Book.create(
-           title: 'hello',
-           isbn: 1231,
-           isbn13: 44223,
-           list_price: 100,
-           sell_price: 50,
-           page_num: 100,
-           publisher: p1,
-           category: c1
-          )
+      # 工廠
+      # b1 = FactoryBot.create(:book)
+      book = create(:book)
   
-      cart.add_item(b1.id)
+      cart.add_item(book.id)
       expect(cart.items.first.product).to be_a Book
       # to be_a 我是一種東西
     end
+
   end
 end
