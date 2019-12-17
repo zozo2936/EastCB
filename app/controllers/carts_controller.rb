@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!, only: [:checkout]
   layout 'book'
   
   def add
@@ -14,6 +15,10 @@ class CartsController < ApplicationController
   def destroy
     session['cart9527'] = nil
     redirect_to root_path, notice: '已清空'
+  end
+
+  def checkout
+    @order = Order.new
   end
 end
                          

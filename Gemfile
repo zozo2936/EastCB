@@ -47,6 +47,7 @@ group :development, :test do
   gem 'faker', '~> 2.8', '>= 2.8.1'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'
+  gem 'hirb', '~> 0.7.3'
 end
 
 
