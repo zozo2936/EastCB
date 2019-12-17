@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  resource :cart, only: [:show,:destroy] do
+    collection do
+      post :add, path: ':id/app'
+      # /cart/2/add
+    end
+  end
+
+
   resources :categories,only:[:show]
   resources :books , only: [:index,:show] do 
     member do 

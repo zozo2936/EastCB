@@ -1,5 +1,4 @@
-<section class="column is-10">
-  <h1><i class="fas fa-book-open"></i>書本列表</h1>
+<h1><i class="fas fa-book-open"></i>書本列表</h1>
   <%= link_to "前往admin", admin_root_path%>
   <%= paginate @books %>
 <section class="columns is-multiline">
@@ -31,11 +30,10 @@
             <time datetime="<%= book.published_at %>"><%= book.published_at %></time>
           </div>
           <p class="content"><%= strip_tags(book.description).truncate(20) %></p>
-          <%= link_to "放到購物車", '#', class: 'button is-light is-small' %>
+          <%= link_to "放到購物車", add_cart_path(book),method:"post", class: 'button is-light is-small' %>
         </div>
       </div>
     </div>
   </div>
 <% end %>
-    </section>
-  </section>
+</section>
