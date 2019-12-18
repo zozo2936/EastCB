@@ -19,7 +19,8 @@ before_action :authenticate_user!
     
     else
       flash[:notice] = @order.errors.full_messages
-      redirect_to root_path
+      # redirect_to root_path
+      render 'carts/checkout'
     end
 
   end

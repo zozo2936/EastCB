@@ -32,6 +32,8 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
+gem 'paranoia', '~> 2.4', '>= 2.4.2'
+gem 'aasm', '~> 4.11'
 
 
 group :production do

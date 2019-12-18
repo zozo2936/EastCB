@@ -4,8 +4,8 @@
 
 <%=form_with(model: @order) do |form|%>
   <div class="field">
-    <%=form.label :recipint,"收件人",class: 'label'%>
-    <%=form.text_field :tel,class: 'input'%>
+    <%=form.label :recipient,"收件人",class: 'label'%>
+    <%=form.text_field :recipient,class: 'input'%>
   </div>
 
   <div class="field">
@@ -15,7 +15,7 @@
 
   <div class="field">
     <%=form.label :address,"地址",class: 'label'%>
-    <%=form.text_field :adress,class: 'input'%>
+    <%=form.text_field :address,class: 'input'%>
   </div>
 
   <div class="field">
