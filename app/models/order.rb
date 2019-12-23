@@ -18,6 +18,9 @@ class Order < ApplicationRecord
     state :paid, :delivered ,:cancelled
 
     event :pay do
+      before do |aa|
+        self.transition_id = aa[:transaction_id]
+      end
       transitions from: :panding, to: :paid
     end
 

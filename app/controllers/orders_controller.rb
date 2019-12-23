@@ -24,10 +24,11 @@ layout 'book'
       }
     )
     if result.success?
-      order.pay!
+      order.pay!(transaction_id: result.transaction.id)
+      # order.pay!(result.transaction.id)
       redirect_to orders_path, notic: '交易完成!'
     else
-      redirect_to orders_path,notic:'交易發生錯誤'#{result.transaction.status}
+      redirect_to orders_path,notic: "交易發生錯誤 #{result.transaction.status}"
     end
   end
 

@@ -1,0 +1,1 @@
+import 'braintree-web-drop-in'

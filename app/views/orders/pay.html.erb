@@ -8,6 +8,7 @@
 <%= form_with url: paid_order_path(order.num) id: 'payment-form' do |form| %>
   <%= form.hidden_field :nonce %>
 <%end%>
+
 <script>
   document.addEventListener('turbolinks:load', () => {
     let button = document.querySelector('#submit-button');
