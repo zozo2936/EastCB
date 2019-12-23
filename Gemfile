@@ -34,6 +34,7 @@ gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'aasm', '~> 4.11'
+gem "braintree", "~> 2.100.0"
 
 
 group :production do

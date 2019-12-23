@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :orders, only:[:index,:show,:create] do
     member do
       put :cancel  # PUT /orders/2/cancel  (刪除訂單) 
+      get :pay #/order/12314141/pay
     end
   end
 

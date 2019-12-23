@@ -1,2 +1,7 @@
 <%= render 'books/list',books: @books%>
 
+<%= @tmies.each do |time|%>
+    <%= time.year%>
+    <%= time.month%>
+    <%= time.day%>
+<%end%>
