@@ -1,7 +1,7 @@
 
-<h1>訂單</h1>
+<h1 class="title">訂單</h1>
 
-<table >
+<table class="table is-fullwidth">
   <thead>
     <tr>
       <th>訂單編號</th>
@@ -14,15 +14,17 @@
 
   <tbody>
     <% @orders.each do |order|%>
-    <td><%= order.num%></td>
-    <%# <td><%= order.total_price%></td> %>
-    <td><%= order.created_at%></td>
+   <tr>
+    <td><%= order.num %></td>
+    <td><%= order.total_price %></td>
+    <td><%= order.created_at %></td>
     <td><%= order.state%></td>
     <td>
-      <%= link_to "複款",pay_order_path(order.num),class: 'button is-danger is-small' if order.may_pay?%>
-      <%= link_to "取消訂單",cancel_order_path(order),method:'put',data:{confirm:'確定取消？'},class: 'button is-primary is-small' if order.may_cancel?%>
-      <%= link_to "退貨",'#',class: 'button is-info is-small' if  order.delivered? && order.may_cancel?%>
+      <%= link_to "付款", pay_order_path(order.num), class: 'button is-danger is-small' if order.may_pay? %>
+      <%= link_to "取消訂單", cancel_order_path(order.num), method: 'put', data: {confirm: '確定取消訂單?'}, class: 'button is-primary is-small' if order.may_cancel? %>
+      <%= link_to "退貨", '#', class: 'button is-info is-small' if order.delivered? && order.may_cancel? %>
     </td>
+   </tr>
   <%end%>
   </tbody>
 </table>

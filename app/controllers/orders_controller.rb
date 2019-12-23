@@ -8,7 +8,21 @@ layout 'book'
   end
 
   def pay
+    gateway = Braintree::Gateway.new(
+      environment: :sandbox,
+      merchant_id: ENV['9vjqwfnrsddcjmrw'],
+      public_key: ENV['w2gk7d5p7vxz8frz'],
+      private_key: ENV['8e29feaed32522869a5b8fdad3883f5c'],
+    )
+    @token = gateway.client_token.generate
     order = current_user.orders.find_by(num: params[:id])
+  end
+
+  def paid
+    order = current_user.orders.find_by(num: params[:id])
+    redirect_to orders_path, notic: '交易完成!'
+
+
   end
 
   def cancel
@@ -19,7 +33,6 @@ layout 'book'
     redirect_to orders_path, notice: "訂單#{order.num}以取消"
   end
 
-  
 
   def create
     @order = current_user.orders.build(order_params)
