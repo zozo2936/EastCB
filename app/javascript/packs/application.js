@@ -6,3 +6,6 @@ require("channels")
 import '../stylesheets/index.js'
 import '../scripts/index.js'
 import "controllers"
+
+require("trix")
+require("@rails/actiontext")
