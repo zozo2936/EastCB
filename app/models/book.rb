@@ -1,9 +1,9 @@
 class Book < ApplicationRecord
   acts_as_paranoid
 
-  validates :title, presence:true
-  validates :isbn,:isbn13, presence:true, uniqueness: true
-  validates :list_price, :sell_price, :page_num, numericality: {greater_than: 0}
+  # validates :title, presence:true
+  # validates :isbn,:isbn13, presence:true, uniqueness: true
+  # validates :list_price, :sell_price, :page_num, numericality: {greater_than: 0}
   #validates 驗證
   
   has_many :comments

@@ -6,12 +6,11 @@
   </ul>
 <% end %>
 
-
 <%= form_for([:admin, book]) do |form| %>
   <div class="field">
   <%= cover_image_tag book%>
 
-  <%= form.label :cover_image, '封面', class: 'label' %>
+  <%= form.label :covtgier_image, '封面', class: 'label' %>
   <%= form.file_field :cover_image, class: 'input' %>
     </div>
       <div class="columns">
@@ -55,11 +54,11 @@
         <%= form.number_field :page_num, class: 'input' %>
       </div>
     </div>
-    <div class="column " > 
+    <div class="column" > 
           <div class="field">
             <%= form.label :category, '分類', class: 'label' %>
           <div class="select is-fullwidth">
-            <%= form.collection_select :category, Category.all, :id, :title %>
+            <%= form.collection_select :category_id, Category.all, :id, :title %>
           </div>
         </div>
     </div>

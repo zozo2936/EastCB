@@ -13,13 +13,13 @@ class Admin::BooksController < Admin::BaseController
   end
 
   def create
-      @book = Book.new(book_params)
-      if @book.save
-        redirect_to admin_books_path, notice: '新增書本成功'
-      else
-        # redirect_to new_book, notice: '新增失敗'
-        render :new #借 new.html.erb
-      end
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to admin_books_path, notice: '新增書本成功'
+    else
+      # redirect_to new_book, notice: '新增失敗'
+      render :new #借 new.html.erb
+    end
   end
 
   def edit
@@ -61,5 +61,4 @@ class Admin::BooksController < Admin::BaseController
                                  :publisher_id,
                                  :category_id)    
     end
-  
 end

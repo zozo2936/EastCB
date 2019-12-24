@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   layout 'book'
 
   def index 
+    
     @books = Book.available
                  .with_attached_cover_image
                  .page(params[:page])
