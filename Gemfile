@@ -35,11 +35,7 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'paranoia', '~> 2.4', '>= 2.4.2'
 gem 'aasm', '~> 4.11'
 gem "braintree", "~> 2.100.0"
-
-
-group :production do
-  gem 'pg'
-end
+gem 'pg', '~> 1.1', '>= 1.1.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
