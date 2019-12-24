@@ -1,3 +1,3 @@
-web: bin/rails server -p 3000
+web: bin/rails server -p $POST
 webpacker:bin/webpacker-dev-server
 
