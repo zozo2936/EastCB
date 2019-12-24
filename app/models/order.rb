@@ -15,14 +15,24 @@ class Order < ApplicationRecord
 
   aasm column: 'state' do
     state :pending, initial: true
-    state :paid, :delivered ,:cancelled
+    state :paid, :delivered, :cancelled
 
     event :pay do
-      before do |aa|
-        self.transition_id = aa[:transaction_id]
+      transitions from: :pending, to: :paid
+
+      before do |args|
+        self.transaction_id = args[:transaction_id]
       end
-      transitions from: :panding, to: :paid
     end
+    
+
+    # event :pay do
+    #   transitions from: :pending, to: :paid
+
+    #   before do |args|
+    #     self.transaction_id = args[:transaction_id]
+    #   end
+    # end
 
     event :deliver do
       transitions from: :paid, to: :delivered
