@@ -12,7 +12,7 @@
     "braintree-web-drop-in": "^1.21.0",
     "bulma": "^0.8.0",
     "flatpickr": "^4.6.3",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "stimulus": "^1.1.1",
     "trix": "^1.0.0",
     "turbolinks": "^5.2.0"
